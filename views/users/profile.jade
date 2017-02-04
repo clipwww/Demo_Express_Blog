@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+  h1= title
+  hr
+  div(class="table-responsive ")
+    table(class="table table-striped table-hover")
+      thead
+        tr 
+          th 名稱
+          th 建立日期
+          th 內容
+          th 
+          th
+      tbody
+        for article in blogs
+          tr
+            td=article.Username
+            td=article.CreateDate
+            td=article.Article
+            td
+                a(href="/users/modify/" + article.id, class="btn btn-default") Modify
+            td
+                a(href="/apis/delete/" + article.id, class="btn btn-danger") Delete

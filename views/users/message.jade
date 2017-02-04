@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+  h1= title
+  hr
+  div 作者：#{username}
+  br
+  div=blogs[0].Article
+  hr
+  b 留言
+  for comment in comments
+    div 留言者：#{comment.Visitor}
+    div 內容：#{comment.Comment}
+    div(class="pull-right") #{comment.CreateDate}
+    hr
+
+  br
+  br
+  div(style="max-width:350px;margin: 0 auto")
+    form(name="comment", action="/apis/comment/" + messageID, method="post")
+        div(class="form-group")
+            label(for="username") Name
+            input(type="text", class="form-control", name="Visitor", id="Visitor")
+        div(class="form-group")
+            label(for="password") Comment
+            textarea(cols="50", rows="25" class="form-control", name="Comment", id="Comment", style="resize: none;height:100px")
+        div(class="btn-group")
+            button(type="submit", class="btn btn-default") 回覆

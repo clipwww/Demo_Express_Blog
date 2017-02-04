@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  h1= title
+  hr
+  form(name="add", action="/apis/add", method="post")
+    div(class="form-group")
+      label(for="username") Writer
+      input(type="text", class="form-control", name="username", id="username" value="#{username}" readonly)
+    div(class="form-group")
+      label(for="password") Article
+      textarea(cols="50", rows="25" class="form-control", name="Content", id="Content", style="resize: none;")
+    div(class="btn-group")
+        button(type="submit", class="btn btn-default") 儲存

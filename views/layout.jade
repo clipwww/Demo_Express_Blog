@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css')
+  body
+    nav(class="navbar navbar-inverse navbar-fixed-top")
+      div(class="container-fluid")
+        div(class="navbar-header")
+          button(type="button", class="navbar-toggle collapsed", data-toggle="collapse", data-target="#js-navbar-collapse")
+            span(class="icon-bar")
+            span(class="icon-bar")
+            span(class="icon-bar")
+          a(class="navbar-brand", href="/") Home
+        
+        div(class="collapse navbar-collapse", id="js-navbar-collapse")
+          ul(class="nav navbar-nav navbar-right")
+            if(username && authenticated)
+              li 
+                a(href="/users/signout") Log Out
+              li 
+                a(href="/users/add_article") Add Article
+              li
+                a(href="/users/profile") profile（#{username}）
+                
+            else
+              li
+                a(href="/users/signin") Log In
+              li
+                a(href="/users/register") Register
+              li
+                a(href="/users/fotgot") Forgot Password
+    block content
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.slim.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js")
